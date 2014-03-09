@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/switch_button_wrapper"
+    tools:context=".Welcome" 
+    android:layout_width="80dip"
+    android:layout_height="38dip" 
+    android:layout_gravity="center_vertical|right"
+    android:background="@drawable/switch_button_border_shape">
+
+   <View android:id="@+id/switch_btn_circle"
+        android:layout_width="37dip"
+        android:layout_height="37dip"
+        android:layout_marginLeft="43dip"
+        android:background="@drawable/switch_btn_circle" />
+	   
+</LinearLayout>

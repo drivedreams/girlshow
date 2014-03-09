@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<View xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/switch_btn_circle"
+    android:layout_width="37dip"
+    android:layout_height="37dip"
+    android:layout_marginLeft="43dip"
+    android:background="@drawable/switch_btn_circle"
+    tools:context=".Welcome" >
+
+</View>

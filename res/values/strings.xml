@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">PinterestListView</string>
+    <string name="app_name">GirlShow</string>
+    <string name="advertise_alt">Welcome back img</string>
+    <string name="pic">pic</string>
 </resources>

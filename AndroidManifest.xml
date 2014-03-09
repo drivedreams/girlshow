@@ -1,22 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.vladimir.pinterestlistview"
+    package="com.zhh.girlshow"
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="15"/>
+    <uses-sdk
+        android:minSdkVersion="9"
+        android:targetSdkVersion="15" />
+    <!-- 所有平台的权限，您可以直接全部添加； Begin -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- 所有平台的权限 End -->
+
+
+    <!-- ************************************************************************** -->
+    <!-- 以下我们将各个平台需要的权限列出，您可以根据需要添加，并且去掉重复项目 -->
+
+
+    <!-- 艾德聚合必须要有的：Begin -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 艾德聚合必须要有的：End -->
+
+
+    <!-- 艾德思奇：Mobisage Begin -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 艾德思奇：Mobisage End -->
+
+
+    <!-- AdMob Begin -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- AdMob End -->
     <application
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" >
         <activity
-            android:name=".ItemsActivity"
-            android:label="@string/app_name" >
+            android:name="com.zhh.girlshow.Welcome"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:theme="@style/FullscreenTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.zhh.girlshow.ItemsActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+            </intent-filter>
+        </activity>
+
+        <!-- 设置艾德聚合平台渠道参数（可选功能） -->
+        <!-- 如果不单独设置聚到参数，我们会使用一个默认值 -->
+        <!-- 设置渠道 Begin -->
+        <meta-data
+            android:name="adSage_channel"
+            android:value="yourChannel" />
+
+        <!-- 设置渠道 End -->
+        <!-- 设置艾德聚合平台地域优化（可选功能） -->
+        <!-- 如果您开启了地域优化，我们会优先参考字段 -->
+        <!-- 如果您设置为"cn"，我们会返回您配置的中文广告平台列表 -->
+        <!-- 如果您设置为"en"，我们会返回您配置的英文广告平台列表 -->
+        <!-- 如果您没有设置本字段，或填写了其他值，我们会无视本字段，而根据您设备的语言设置进行判断 -->
+        <!-- 如果您设备的语言设置为简体中文或繁体中文，我们会返回您配置的中文广告平台列表，反之，我们将返回英文广告平台列表 -->
+        <meta-data
+            android:name="adsage_location"
+            android:value="cn" />
+
+        <!-- ************************************************************************** -->
+        <!-- 以下为我们列出来的各平台需要进行的特殊配置 -->
+        <!-- 艾德思奇：Mobisage Start -->
+        <meta-data
+            android:name="Mobisage_channel"
+            android:value="mobiSageMediatorSDK_1.0.0" />
+
+        <activity
+            android:name="com.mobisage.android.MobiSageActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.mobisage.android.MobiSageAdPosterActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@android:style/Theme.Translucent" >
+        </activity>
+        <activity
+            android:name="com.mobisage.android.CategoryActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@android:style/Theme.Translucent" >
+        </activity>
+
+        <service
+            android:name="com.mobisage.android.MobiSageApkService"
+            android:enabled="true" />
+
+        <receiver android:name="com.mobisage.android.MobiSageAdReceiver" />
+        <!-- 艾德思奇：Mobisage End -->
+
+
+        <!-- AdMob Begin -->
+        <activity
+            android:name="com.google.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+        <!-- AdMob End -->
     </application>
 
 </manifest>

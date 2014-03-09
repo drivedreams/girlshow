@@ -1,4 +1,4 @@
-package com.vladimir.pinterestlistview.adapters;
+package com.zhh.girshow.adapters;
 
 import android.app.Activity;
 import android.content.Context;
@@ -6,13 +6,14 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import com.vladimir.pinterestlistview.R;
+import com.zhh.girlshow.R;
 
 public class ItemsAdapter extends ArrayAdapter<Integer>{
 
@@ -30,14 +31,16 @@ public class ItemsAdapter extends ArrayAdapter<Integer>{
         float margin = (int)convertDpToPixel(10f, (Activity)context);
         // two images, three margins of 10dips
 		imageWidth = ((width - (3 * margin)) / 2);
+		
     }
 
 	@Override
     public View getView(int position, View convertView, ViewGroup parent) {
         FrameLayout row = (FrameLayout) convertView;
         ItemHolder holder;
-        Integer item = getItem(position);
         
+        Integer item = getItem(position);
+        Log.w("test", "item : " + item);
 		if (row == null) {
 			holder = new ItemHolder();
             inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
